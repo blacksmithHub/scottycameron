@@ -1,0 +1,51 @@
+var webpack = require('webpack')
+
+module.exports = {
+  transpileDependencies: [
+    'vuetify'
+  ],
+  pluginOptions: {
+    electronBuilder: {
+      externals: [
+        'puppeteer',
+        'puppeteer-extra',
+        'puppeteer-extra-plugin-stealth'
+      ],
+      nodeModulesPath: ['../../node_modules', './node_modules'],
+      nodeIntegration: true,
+      builderOptions: {
+        asarUnpack: 'node_modules/puppeteer/.local-chromium/**/*',
+        copyright: 'Copyright © 2021',
+        nsis: {
+          oneClick: false,
+          allowToChangeInstallationDirectory: true
+        },
+        publish: [
+          {
+            provider: 'github',
+            repo: 'scottycameron',
+            owner: 'dannielibor',
+            token: process.env.VUE_APP_GITHUB_TOKEN,
+            releaseType: 'draft',
+            publishAutoUpdate: true,
+            private: true
+          }
+        ]
+      }
+    }
+  },
+  configureWebpack: {
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          PACKAGE_JSON: '"' + escape(JSON.stringify(require('./package.json'))) + '"'
+        }
+      })
+    ],
+    externals: {
+      puppeteer: "require('puppeteer')",
+      'puppeteer-extra': "require('puppeteer-extra')",
+      'puppeteer-extra-plugin-stealth': "require('puppeteer-extra-plugin-stealth')"
+    }
+  }
+}

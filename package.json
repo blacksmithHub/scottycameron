@@ -1,0 +1,92 @@
+{
+  "name": "talos-io",
+  "productName": "TALOS-IO",
+  "description": "Scotty Cameron Bot",
+  "version": "1.4.8",
+  "private": true,
+  "author": "Blacksmith",
+  "license": "MIT",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:publish": "vue-cli-service electron:build -p always",
+    "electron:serve": "vue-cli-service electron:serve",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps",
+    "electron:generate-icons": "electron-icon-builder --input=./public/talos.png --output=build --flatten"
+  },
+  "main": "background.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "discord-rich-presence": "0.0.8",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "electron-icon-builder": "^2.0.1",
+    "electron-updater": "^4.3.8",
+    "express": "^4.17.1",
+    "moment-timezone": "^0.5.33",
+    "passport": "^0.4.1",
+    "passport-discord": "^0.1.4",
+    "passport-oauth2-refresh": "^2.0.2",
+    "proxy-chain": "^1.0.1",
+    "puppeteer": "^8.0.0",
+    "puppeteer-extra": "^3.1.18",
+    "puppeteer-extra-plugin-stealth": "^2.7.6",
+    "qs": "^6.10.1",
+    "request-promise": "^4.2.6",
+    "tough-cookie": "^4.0.0",
+    "url-parse": "^1.5.1",
+    "user-agents": "^1.0.619",
+    "utf8": "^3.0.0",
+    "vue": "^2.6.11",
+    "vue-digital-clock": "^2.0.0",
+    "vue-moment": "^4.1.0",
+    "vue-router": "^3.5.1",
+    "vuelidate": "^0.7.6",
+    "vuetify": "^2.4.0",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "electron": "^11.0.0",
+    "electron-devtools-installer": "^3.1.0",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "sass": "^1.32.0",
+    "sass-loader": "^10.0.0",
+    "vue-cli-plugin-electron-builder": "~2.0.0-rc.6",
+    "vue-cli-plugin-vuetify": "~2.3.1",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.7.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
