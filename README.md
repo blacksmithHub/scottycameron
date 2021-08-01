@@ -1,4 +1,4 @@
-# titan-bot-frontend
+# scotty-cameron-bot
 
 ## Project setup
 ```
